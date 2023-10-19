@@ -19,15 +19,12 @@ abstract class Utility
     /**
      * @var array [
      *     'NULL',
+     *     'boolean',
      *     'string',
-     *     'int',
+     *     'integer',
      *     'double',
-     *     'bool',
      *     'array',
      *     'object',
-     *     'callable',
-     *     'resource',
-     *     'iterable',
      *     'ClassNamespace'
      * ]
      */
@@ -44,7 +41,7 @@ abstract class Utility
     public function setInput(array $properties): self
     {
         foreach ($this->inputProperties as $property => $default) {
-            if (in_array($property, $properties, true)) {
+            if (array_key_exists($property, $properties)) {
                 $this->$property = $properties[$property];
                 continue;
             }
@@ -85,11 +82,17 @@ abstract class Utility
     protected function getType(mixed $value): string
     {
         $type = gettype($value);
-        if ($type === 'object') {
-            $type = get_class($value);
+        if ($type !== OutputType::OBJECT->value) {
+            return $type;
         }
 
-        return $type;
+        $class = get_class($value);
+
+        if ($class !== 'stdClass') {
+            return $class;
+        }
+
+        return OutputType::OBJECT->value;
     }
 
     /**
@@ -97,7 +100,7 @@ abstract class Utility
      */
     protected function invalidProperty(string $propertyName, string $type): never
     {
-        $class = self::class;
-        throw new InvalidPropertyException("{$propertyName} property in {$class} can not be {$type}.");
+        $class = get_class($this);
+        throw new InvalidPropertyException("{$propertyName} property in {$class} should not be {$type}.");
     }
 }
