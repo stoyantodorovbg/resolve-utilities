@@ -1,6 +1,6 @@
 {
     "name": "stoyantodorov/resolve-utilities",
-    "description": "This is my package resolve-utilities",
+    "description": "Laravel package",
     "keywords": [
         "stoyantodorov",
         "laravel",
@@ -35,8 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "StoyanTodorov\\ResolveUtilities\\": "src/",
-            "StoyanTodorov\\ResolveUtilities\\Database\\Factories\\": "database/factories/"
+            "StoyanTodorov\\ResolveUtilities\\": "src/"
         }
     },
     "autoload-dev": {
