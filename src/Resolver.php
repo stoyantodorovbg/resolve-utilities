@@ -13,10 +13,10 @@ class Resolver implements ResolverInterface
      * @throws InvalidPropertyException
      * @throws Exceptions\InvalidPropertyException
      */
-    public function useUtility(string $abstract, array $properties): mixed
+    public function useUtility(string $abstract, array $input): mixed
     {
         return $this->getUtility($abstract)
-            ->setInput($properties)
+            ->reset($input)
             ->execute()
             ->getOutput();
     }

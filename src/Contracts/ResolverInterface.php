@@ -2,13 +2,15 @@
 
 namespace StoyanTodorov\ResolveUtilities\Contracts;
 
+use StoyanTodorov\ResolveUtilities\Exceptions\InvalidPropertyException;
+
 interface ResolverInterface
 {
     /**
      * @param string $abstract
-     * @param array  $properties
+     * @param array  $input
      * @return mixed
      * @throws InvalidPropertyException
      */
-    public function useUtility(string $abstract, array $properties): mixed;
+    public function useUtility(string $abstract, array $input): mixed;
 }

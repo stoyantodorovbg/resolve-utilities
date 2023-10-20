@@ -9,8 +9,8 @@ abstract class Utility
     protected mixed $output;
 
     /**
- * @var array ['propertyName']
- */
+    * @var array ['propertyName']
+    */
     protected array $requiredInput = [];
 
     /**
@@ -40,11 +40,11 @@ abstract class Utility
     /**
      * @throws InvalidPropertyException
      */
-    public function setInput(array $properties): self
+    public function reset(array $input): self
     {
         foreach ($this->requiredInput as $property) {
-            if (array_key_exists($property, $properties)) {
-                $this->$property = $properties[$property];
+            if (array_key_exists($property, $input)) {
+                $this->$property = $input[$property];
                 continue;
             }
             if (array_key_exists($property, $this->defaultInput)) {
@@ -54,9 +54,14 @@ abstract class Utility
             $this->missingProperty($property);
         }
 
-        $this->output = null;
+        $this->setOutput(null);
 
         return $this;
+    }
+
+    protected function setOutput(mixed $output): void
+    {
+        $this->output = $output;
     }
 
     /**
@@ -89,7 +94,6 @@ abstract class Utility
         }
 
         $class = get_class($value);
-
         if ($class !== 'stdClass') {
             return $class;
         }
@@ -103,7 +107,8 @@ abstract class Utility
     protected function invalidProperty(string $propertyName, string $type): never
     {
         $class = get_class($this);
-        throw new InvalidPropertyException("{$propertyName} property in {$class} should not be {$type}.");
+        $message = "{$propertyName} property in {$class} should not be {$type}.";
+        $this->throwInvalidProperty($message);
     }
 
     /**
@@ -112,6 +117,15 @@ abstract class Utility
     protected function missingProperty(string $propertyName): never
     {
         $class = get_class($this);
-        throw new InvalidPropertyException("{$propertyName} property in {$class} should presents.");
+        $message = "{$propertyName} property in {$class} should presents.";
+        $this->throwInvalidProperty($message);
+    }
+
+    /**
+     * @throws InvalidPropertyException
+     */
+    protected function throwInvalidProperty(string $message): never
+    {
+        throw new InvalidPropertyException($message);
     }
 }

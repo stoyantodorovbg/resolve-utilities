@@ -11,7 +11,7 @@ class FailureIntOutput extends Utility
 
     public function execute(): Utility
     {
-        $this->output = '1';
+        $this->setOutput('3');
 
         return $this;
     }

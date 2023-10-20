@@ -15,7 +15,7 @@ class SuccessBoolOutput extends Utility
 
     public function execute(): Utility
     {
-        $this->output = $this->testProp;
+        $this->setOutput($this->testProp);
 
         return $this;
     }

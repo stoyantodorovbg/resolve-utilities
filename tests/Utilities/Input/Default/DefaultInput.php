@@ -25,12 +25,13 @@ class DefaultInput extends Utility
 
     public function execute(): Utility
     {
-        $this->output = [
+        $output = [
             'testString' => $this->testString,
             'testInt'    => $this->testInt,
             'testFloat'  => $this->testFloat,
             'testArray'  => $this->testArray,
         ];
+        $this->setOutput($output);
 
         return $this;
     }

@@ -8,16 +8,16 @@ class UtilityHelper
 {
     public function getUtility(string $class, array $parameters): mixed
     {
-        return resolve($class)->setInput($parameters)->execute()->getOutput();
+        return resolve($class)->reset($parameters)->execute()->getOutput();
     }
 
     public function useUtility(Utility $utility, array $parameters): mixed
     {
-        return $utility->setInput($parameters)->execute()->getOutput();
+        return $utility->reset($parameters)->execute()->getOutput();
     }
 
     public function setUtilityInput(string $class, array $parameters): Utility
     {
-        return resolve($class)->setInput($parameters);
+        return resolve($class)->reset($parameters);
     }
 }
