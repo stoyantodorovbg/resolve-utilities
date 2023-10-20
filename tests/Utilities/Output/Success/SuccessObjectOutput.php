@@ -8,7 +8,7 @@ use StoyanTodorov\ResolveUtilities\Utility;
 class SuccessObjectOutput extends Utility
 {
     protected array $inputProperties = [
-        'testProp' => 'notNull',
+        'testProp' => 'required',
     ];
 
     protected object|null $testProp = null;

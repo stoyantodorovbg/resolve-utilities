@@ -8,7 +8,7 @@ use StoyanTodorov\ResolveUtilities\Utility;
 class SuccessBoolOutput extends Utility
 {
     protected array $inputProperties = [
-        'testProp' => 'notNull',
+        'testProp' => 'required',
     ];
 
     protected bool|null $testProp = null;

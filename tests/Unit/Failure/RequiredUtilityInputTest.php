@@ -5,7 +5,7 @@ use StoyanTodorov\ResolveUtilities\Exceptions\InvalidPropertyException;
 use StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Required\RequiredInput;
 use StoyanTodorov\ResolveUtilities\Tests\Utilities\TestClass;
 
-test('Utility validates required parameter 1', function () use ($actual) {
+test('Utility validates required parameter 1', function () {
     $parameters = [
         'testInt'    => 1,
         'testFloat'  => 1.1,
@@ -19,7 +19,7 @@ test('Utility validates required parameter 1', function () use ($actual) {
     'testString property in StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Required\RequiredInput should presents.'
 );
 
-test('Utility validates required parameter 2', function () use ($actual) {
+test('Utility validates required parameter 2', function () {
     $parameters = [
         'testString' => 'test',
         'testFloat'  => 1.1,
@@ -33,7 +33,7 @@ test('Utility validates required parameter 2', function () use ($actual) {
     'testInt property in StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Required\RequiredInput should presents.'
 );
 
-test('Utility validates required parameter 3', function () use ($actual) {
+test('Utility validates required parameter 3', function () {
     $parameters = [
         'testString' => 'test',
         'testInt'    => 1,
@@ -47,7 +47,7 @@ test('Utility validates required parameter 3', function () use ($actual) {
     'testFloat property in StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Required\RequiredInput should presents.'
 );
 
-test('Utility validates required parameter 4', function () use ($actual) {
+test('Utility validates required parameter 4', function () {
     $parameters = [
         'testString' => 'test',
         'testInt'    => 1,
@@ -61,7 +61,7 @@ test('Utility validates required parameter 4', function () use ($actual) {
     'testObject property in StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Required\RequiredInput should presents.'
 );
 
-test('Utility validates required parameter 5', function () use ($actual) {
+test('Utility validates required parameter 5', function () {
     $parameters = [
         'testString' => 'test',
         'testInt'    => 1,
@@ -75,7 +75,7 @@ test('Utility validates required parameter 5', function () use ($actual) {
     'testArray property in StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Required\RequiredInput should presents.'
 );
 
-test('Utility validates required parameter 6', function () use ($actual) {
+test('Utility validates required parameter 6', function () {
     $parameters = [
         'testString' => 'test',
         'testInt'    => 1,

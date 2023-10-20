@@ -8,7 +8,7 @@ use StoyanTodorov\ResolveUtilities\Utility;
 class SuccessClassInstanceOutput extends Utility
 {
     protected array $inputProperties = [
-        'testProp' => 'notNull',
+        'testProp' => 'required',
     ];
 
     protected TestClass|null $testProp = null;

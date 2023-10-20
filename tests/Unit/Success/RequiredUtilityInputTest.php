@@ -5,7 +5,7 @@ use StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Required\RequiredInput;
 use StoyanTodorov\ResolveUtilities\Tests\Utilities\TestClass;
 use StoyanTodorov\ResolveUtilities\Utility;
 
-test('Utility receives all not null parameters', function () use ($actual) {
+test('Utility can receives all required parameters', function () {
     $parameters = [
         'testString' => 'test',
         'testInt'    => 1,
