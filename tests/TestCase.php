@@ -2,26 +2,26 @@
 
 namespace StoyanTodorov\ResolveUtilities\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 use StoyanTodorov\ResolveUtilities\ResolveUtilitiesServiceProvider;
+use StoyanTodorov\ResolveUtilities\Tests\Helpers\UtilityHelper;
 
 class TestCase extends Orchestra
 {
+    protected UtilityHelper $utilityHelper;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->utilityHelper = resolve(UtilityHelper::class);
+    }
+
     protected function getPackageProviders($app): array
     {
         return [
             ResolveUtilitiesServiceProvider::class,
+            TestServiceProvider::class
         ];
-    }
-
-    public function getEnvironmentSetUp($app): void
-    {
-        config()->set('database.default', 'testing');
-
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_resolve-utilities_table.php.stub';
-        $migration->up();
-        */
     }
 }
