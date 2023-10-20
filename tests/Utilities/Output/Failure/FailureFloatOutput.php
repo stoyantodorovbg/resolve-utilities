@@ -5,9 +5,9 @@ namespace StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Failure;
 use StoyanTodorov\ResolveUtilities\OutputType;
 use StoyanTodorov\ResolveUtilities\Utility;
 
-class FailureStringOutput extends Utility
+class FailureFloatOutput extends Utility
 {
-    protected array $outputTypes = [OutputType::STRING->value];
+    protected array $outputTypes = [OutputType::FLOAT->value];
 
     public function execute(): Utility
     {

@@ -5,13 +5,13 @@ namespace StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Failure;
 use StoyanTodorov\ResolveUtilities\OutputType;
 use StoyanTodorov\ResolveUtilities\Utility;
 
-class FailureStringOutput extends Utility
+class FailureIntOutput extends Utility
 {
-    protected array $outputTypes = [OutputType::STRING->value];
+    protected array $outputTypes = [OutputType::INT->value];
 
     public function execute(): Utility
     {
-        $this->output = 3;
+        $this->output = '1';
 
         return $this;
     }
