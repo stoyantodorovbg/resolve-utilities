@@ -6,11 +6,11 @@ use StoyanTodorov\ResolveUtilities\Contracts\ResolverInterface;
 
 trait HasResolver
 {
-    protected ResolverInterface|null $resolver;
+    protected ResolverInterface|null $resolver = null;
 
-    protected function useUtility(string $abstract, array $properties): mixed
+    protected function useUtility(string $abstract, array $input): mixed
     {
-        return $this->getResolver()->useUtility($abstract, $properties);
+        return $this->getResolver()->useUtility($abstract, $input);
     }
 
     protected function getResolver(): ResolverInterface

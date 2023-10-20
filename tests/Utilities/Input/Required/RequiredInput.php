@@ -3,12 +3,15 @@
 namespace StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Required;
 
 
+use StoyanTodorov\ResolveUtilities\OutputType;
 use StoyanTodorov\ResolveUtilities\Tests\Utilities\TestClass;
 use StoyanTodorov\ResolveUtilities\Utility;
 
 class RequiredInput extends Utility
 {
     protected array $requiredInput = ['testString', 'testInt', 'testFloat', 'testObject', 'testArray', 'testClass'];
+
+    protected array $outputTypes = [OutputType::ARRAY->value];
 
     protected string|null $testString;
     protected int|null $testInt;
@@ -19,6 +22,15 @@ class RequiredInput extends Utility
 
     public function execute(): Utility
     {
+        $output = [
+            'testString' => $this->testString,
+            'testInt'    => $this->testInt,
+            'testFloat'  => $this->testFloat,
+            'testObject' => $this->testObject,
+            'testArray'  => $this->testArray,
+            'testClass'  => $this->testClass,
+        ];
+        $this->setOutput($output);
         return $this;
     }
 }
