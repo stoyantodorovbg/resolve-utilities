@@ -3,6 +3,7 @@
 namespace StoyanTodorov\ResolveUtilities;
 
 use StoyanTodorov\ResolveUtilities\Contracts\ResolverInterface;
+use StoyanTodorov\ResolveUtilities\Exceptions\InvalidPropertyException;
 
 class Resolver implements ResolverInterface
 {

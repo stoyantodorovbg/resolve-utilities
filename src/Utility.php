@@ -10,7 +10,7 @@ abstract class Utility
 
     /**
      * @var array [
-     *     'notNullableProperty'      => 'required',
+     *     'requiredProperty'         => 'required',
      *     'propertyWithDefaultValue' => 'defaultValue',
      * ]
      */
@@ -28,7 +28,7 @@ abstract class Utility
      *     'ClassNamespace'
      * ]
      */
-    protected array $outputTypes = ['NULL'];
+    protected array $outputTypes = [];
 
     /**
      * @return self

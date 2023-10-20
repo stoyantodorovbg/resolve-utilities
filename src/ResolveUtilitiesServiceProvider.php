@@ -17,8 +17,6 @@ class ResolveUtilitiesServiceProvider extends PackageServiceProvider
 
     public function configurePackage(Package $package): void
     {
-        $package
-            ->name('resolve-utilities')
-            ->hasConfigFile();
+        $package->name('resolve-utilities');
     }
 }
