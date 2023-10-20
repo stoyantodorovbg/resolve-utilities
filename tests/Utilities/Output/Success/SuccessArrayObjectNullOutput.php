@@ -7,13 +7,11 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class SuccessArrayObjectNullOutput extends Utility
 {
-    protected array $inputProperties = [
-        'testProp' => 'required',
-    ];
-
-    protected array|object|bool|null $testProp = null;
+    protected array $requiredInput = ['testProp'];
 
     protected array $outputTypes = [OutputType::ARRAY->value, OutputType::OBJECT->value, OutputType::NULL->value];
+
+    protected array|object|bool|null $testProp = null;
 
     public function execute(): Utility
     {

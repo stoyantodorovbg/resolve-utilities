@@ -7,13 +7,11 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class SuccessObjectOutput extends Utility
 {
-    protected array $inputProperties = [
-        'testProp' => 'required',
-    ];
-
-    protected object|null $testProp = null;
+    protected array $requiredInput = ['testProp'];
 
     protected array $outputTypes = [OutputType::OBJECT->value];
+
+    protected object|null $testProp = null;
 
     public function execute(): Utility
     {

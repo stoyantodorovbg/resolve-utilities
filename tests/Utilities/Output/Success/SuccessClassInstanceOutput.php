@@ -7,13 +7,11 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class SuccessClassInstanceOutput extends Utility
 {
-    protected array $inputProperties = [
-        'testProp' => 'required',
-    ];
-
-    protected TestClass|null $testProp = null;
+    protected array $requiredInput = ['testProp'];
 
     protected array $outputTypes = [TestClass::class];
+
+    protected TestClass|null $testProp = null;
 
     public function execute(): Utility
     {

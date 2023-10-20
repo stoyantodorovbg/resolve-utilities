@@ -8,14 +8,7 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class RequiredInput extends Utility
 {
-    protected array $inputProperties = [
-        'testString' => 'required',
-        'testInt'    => 'required',
-        'testFloat'  => 'required',
-        'testObject' => 'required',
-        'testArray'  => 'required',
-        'testClass'  => 'required',
-    ];
+    protected array $requiredInput = ['testString', 'testInt', 'testFloat', 'testObject', 'testArray', 'testClass'];
 
     protected string|null $testString;
     protected int|null $testInt;

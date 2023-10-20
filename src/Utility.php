@@ -9,12 +9,14 @@ abstract class Utility
     protected mixed $output;
 
     /**
-     * @var array [
-     *     'requiredProperty'         => 'required',
-     *     'propertyWithDefaultValue' => 'defaultValue',
-     * ]
+ * @var array ['propertyName']
+ */
+    protected array $requiredInput = [];
+
+    /**
+     * @var array ['propertyName' => 'defaultValue]
      */
-    protected array $inputProperties = [];
+    protected array $defaultInput = [];
 
     /**
      * @var array [
@@ -40,13 +42,13 @@ abstract class Utility
      */
     public function setInput(array $properties): self
     {
-        foreach ($this->inputProperties as $property => $default) {
+        foreach ($this->requiredInput as $property) {
             if (array_key_exists($property, $properties)) {
                 $this->$property = $properties[$property];
                 continue;
             }
-            if ($default !== 'required') {
-                $this->$property = $default;
+            if (array_key_exists($property, $this->defaultInput)) {
+                $this->$property = $this->defaultInput[$property];
                 continue;
             }
             $this->missingProperty($property);

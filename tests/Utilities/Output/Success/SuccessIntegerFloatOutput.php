@@ -7,13 +7,11 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class SuccessIntegerFloatOutput extends Utility
 {
-    protected array $inputProperties = [
-        'testProp' => 'required',
-    ];
-
-    protected int|float|null $testProp = null;
+    protected array $requiredInput = ['testProp'];
 
     protected array $outputTypes = [OutputType::INT->value, OutputType::FLOAT->value];
+
+    protected int|float|null $testProp = null;
 
     public function execute(): Utility
     {
