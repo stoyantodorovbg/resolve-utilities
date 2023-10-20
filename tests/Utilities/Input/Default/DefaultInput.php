@@ -4,7 +4,7 @@ namespace StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Default;
 
 use StoyanTodorov\ResolveUtilities\Utility;
 
-class DefaultStringInput extends Utility
+class DefaultInput extends Utility
 {
     protected string|null $test = 'default';
 

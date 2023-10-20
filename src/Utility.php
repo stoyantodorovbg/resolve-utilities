@@ -10,7 +10,7 @@ abstract class Utility
 
     /**
      * @var array [
-     *     'notNullableProperty'      => 'notNull',
+     *     'notNullableProperty'      => 'required',
      *     'propertyWithDefaultValue' => 'defaultValue',
      * ]
      */
@@ -45,11 +45,11 @@ abstract class Utility
                 $this->$property = $properties[$property];
                 continue;
             }
-            if ($default !== 'notNull') {
+            if ($default !== 'required') {
                 $this->$property = $default;
                 continue;
             }
-            $this->invalidProperty($property, 'null');
+            $this->missingProperty($property);
         }
 
         $this->output = null;
@@ -102,5 +102,14 @@ abstract class Utility
     {
         $class = get_class($this);
         throw new InvalidPropertyException("{$propertyName} property in {$class} should not be {$type}.");
+    }
+
+    /**
+     * @throws InvalidPropertyException
+     */
+    protected function missingProperty(string $propertyName): never
+    {
+        $class = get_class($this);
+        throw new InvalidPropertyException("{$propertyName} property in {$class} should presents.");
     }
 }
