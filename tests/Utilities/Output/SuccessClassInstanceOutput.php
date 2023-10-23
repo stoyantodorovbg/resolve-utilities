@@ -9,9 +9,9 @@ class SuccessClassInstanceOutput extends Utility
 {
     protected TestClass $output;
 
-    protected array $requiredInput = ['testProp'];
-
     protected TestClass|null $testProp = null;
+
+    protected array $requiredInput = ['testProp'];
 
     public function execute(): Utility
     {

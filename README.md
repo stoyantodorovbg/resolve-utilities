@@ -9,13 +9,19 @@ This package makes it easy to follow Single Responsibility Principle without dup
 <br>
 `Utility` class extensions have method `execute` that is intended to use class properties as input parameters and to produce a result in `output` property. These properties allow us to define typed values without using a specific interface. 
 <br>
-There is a wrapper that instantiates once `Utility` extension in its own instance, set properties and returns a result. The wrapper resets `Utility` properties every time when it is used in order to prevent a usage mess. 
+There is a wrapper that instantiates once `Utility` extension in its own instance, set properties and returns a result. The wrapper resets `Utility` input properties every time when it is used in order to prevent a usage mess. 
 
 ## Requirements
 
 - `PHP 8.1`
 
 - `Laravel`
+
+## Installation
+
+```bash
+composer require stoyantodorov/resolve-utilities
+```
 
 ## Usage
 
@@ -27,11 +33,11 @@ class StringOutputExample extends Utility
 {
     protected string $output;
 
-    protected array $requiredInput = ['propOne'];
-    protected array $defaultInput = ['propTwo' => 1];
-
     protected string|null $propOne = null;
     protected int|null $propTwo = null;
+    
+    protected array $requiredInput = ['propOne'];
+    protected array $defaultInput = ['propTwo' => 1];
 
     public function execute(): Utility
     {
@@ -44,7 +50,7 @@ class StringOutputExample extends Utility
 - In `requiredInput` property add the properties names which `execute` method is going to use.
 - In `defaultInput` property add the properties names with default values. Every time when `Resolver` `useUtility` method is called these values will be used while they aren't sent to it in the second parameter.
 
-#### Use Resolver
+#### Resolver
 
 ```php
 $resolver = new StoyanTodorov\ResolveUtilities\Resolver;
@@ -55,7 +61,7 @@ $resultTwo = $resolver->useUtility(StringOutputExample::class, ['propOne' => 'te
 - `useUtility` first parameter accepts also an abstract definition like `'single-output-example'`. It will instantiate it if there is such definition in `Laravel` 
 [Service Container](https://laravel.com/docs/10.x/container)
 
-#### Use HasResolver
+#### HasResolver
 
 ```php
 use StoyanTodorov\ResolveUtilities\HasResolver;

@@ -8,9 +8,9 @@ class SuccessFloatOutput extends Utility
 {
     protected float $output;
 
-    protected array $requiredInput = ['testProp'];
-
     protected float|null $testProp = null;
+
+    protected array $requiredInput = ['testProp'];
 
     public function execute(): Utility
     {

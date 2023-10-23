@@ -8,9 +8,9 @@ class SuccessIntegerOutput extends Utility
 {
     protected int $output;
 
-    protected array $requiredInput = ['testProp'];
-
     protected int|null $testProp = null;
+
+    protected array $requiredInput = ['testProp'];
 
     public function execute(): Utility
     {

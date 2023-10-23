@@ -8,9 +8,9 @@ class SuccessArrayOutput extends Utility
 {
     protected array $output;
 
-    protected array $requiredInput = ['testProp'];
-
     protected array|null $testProp = null;
+
+    protected array $requiredInput = ['testProp'];
 
     public function execute(): Utility
     {

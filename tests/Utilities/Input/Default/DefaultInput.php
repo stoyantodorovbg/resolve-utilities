@@ -8,6 +8,11 @@ class DefaultInput extends Utility
 {
     protected array $output;
 
+    protected string|null $testString;
+    protected int|null $testInt;
+    protected float|null $testFloat;
+    protected array|null $testArray;
+
     protected array $requiredInput = ['testString', 'testInt', 'testFloat', 'testArray'];
 
     protected array $defaultInput = [
@@ -16,11 +21,6 @@ class DefaultInput extends Utility
         'testFloat'  => 1.1,
         'testArray'  => [],
     ];
-
-    protected string|null $testString;
-    protected int|null $testInt;
-    protected float|null $testFloat;
-    protected array|null $testArray;
 
     public function execute(): Utility
     {

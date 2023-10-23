@@ -8,9 +8,9 @@ class SuccessBoolOutput extends Utility
 {
     protected bool $output;
 
-    protected array $requiredInput = ['testProp'];
-
     protected bool|null $testProp = null;
+
+    protected array $requiredInput = ['testProp'];
 
     public function execute(): Utility
     {

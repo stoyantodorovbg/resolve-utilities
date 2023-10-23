@@ -9,14 +9,14 @@ class RequiredInput extends Utility
 {
     protected array $output;
 
-    protected array $requiredInput = ['testString', 'testInt', 'testFloat', 'testObject', 'testArray', 'testClass'];
-
     protected string|null $testString;
     protected int|null $testInt;
     protected float|null $testFloat;
     protected object|null $testObject;
     protected array|null $testArray;
     protected TestClass|null $testClass;
+
+    protected array $requiredInput = ['testString', 'testInt', 'testFloat', 'testObject', 'testArray', 'testClass'];
 
     public function execute(): Utility
     {
