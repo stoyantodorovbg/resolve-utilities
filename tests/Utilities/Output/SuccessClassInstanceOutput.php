@@ -1,21 +1,21 @@
 <?php
 
-namespace StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Success;
+namespace StoyanTodorov\ResolveUtilities\Tests\Utilities\Output;
 
 use StoyanTodorov\ResolveUtilities\Tests\Utilities\TestClass;
 use StoyanTodorov\ResolveUtilities\Utility;
 
 class SuccessClassInstanceOutput extends Utility
 {
-    protected array $requiredInput = ['testProp'];
+    protected TestClass|null $output;
 
-    protected array $outputTypes = [TestClass::class];
+    protected array $requiredInput = ['testProp'];
 
     protected TestClass|null $testProp = null;
 
     public function execute(): Utility
     {
-        $this->setOutput($this->testProp);
+        $this->output = $this->testProp;
 
         return $this;
     }

@@ -16,7 +16,7 @@ class Resolver implements ResolverInterface
     public function useUtility(string $abstract, array $input): mixed
     {
         return $this->getUtility($abstract)
-            ->reset($input)
+            ->resetInput($input)
             ->execute()
             ->getOutput();
     }

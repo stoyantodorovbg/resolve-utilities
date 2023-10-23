@@ -2,15 +2,15 @@
 
 use StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Default\DefaultInput;
 use StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Required\RequiredInput;
-use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Success\SuccessArrayObjectNullOutput;
-use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Success\SuccessArrayOutput;
-use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Success\SuccessBoolOutput;
-use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Success\SuccessClassInstanceOutput;
-use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Success\SuccessFloatOutput;
-use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Success\SuccessIntegerFloatOutput;
-use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Success\SuccessIntegerOutput;
-use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Success\SuccessObjectOutput;
-use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\Success\SuccessStringOutput;
+use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\SuccessArrayObjectNullOutput;
+use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\SuccessArrayOutput;
+use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\SuccessBoolOutput;
+use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\SuccessClassInstanceOutput;
+use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\SuccessFloatOutput;
+use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\SuccessIntegerFloatOutput;
+use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\SuccessIntegerOutput;
+use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\SuccessObjectOutput;
+use StoyanTodorov\ResolveUtilities\Tests\Utilities\Output\SuccessStringOutput;
 use StoyanTodorov\ResolveUtilities\Tests\Utilities\TestClass;
 
 

@@ -2,11 +2,12 @@
 
 namespace StoyanTodorov\ResolveUtilities\Tests\Utilities\Input\Default;
 
-use StoyanTodorov\ResolveUtilities\OutputType;
 use StoyanTodorov\ResolveUtilities\Utility;
 
 class DefaultInput extends Utility
 {
+    protected array|null $output;
+
     protected array $requiredInput = ['testString', 'testInt', 'testFloat', 'testArray'];
 
     protected array $defaultInput = [
@@ -16,8 +17,6 @@ class DefaultInput extends Utility
         'testArray'  => [],
     ];
 
-    protected array $outputTypes = [OutputType::ARRAY->value];
-
     protected string|null $testString;
     protected int|null $testInt;
     protected float|null $testFloat;
@@ -25,13 +24,12 @@ class DefaultInput extends Utility
 
     public function execute(): Utility
     {
-        $output = [
+        $this->output = [
             'testString' => $this->testString,
             'testInt'    => $this->testInt,
             'testFloat'  => $this->testFloat,
             'testArray'  => $this->testArray,
         ];
-        $this->setOutput($output);
 
         return $this;
     }

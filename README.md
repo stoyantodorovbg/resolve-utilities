@@ -11,9 +11,9 @@ This package makes it easy to follow Single Responsibility Principle without dup
 
 ## Requirements
 
-#### `PHP 8.2`
+- `PHP 8.2`
 
-#### `Laravel`
+- `Laravel`
 
 ## Usage
 
