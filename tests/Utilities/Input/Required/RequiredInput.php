@@ -7,7 +7,7 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class RequiredInput extends Utility
 {
-    protected array|null $output;
+    protected array $output;
 
     protected array $requiredInput = ['testString', 'testInt', 'testFloat', 'testObject', 'testArray', 'testClass'];
 

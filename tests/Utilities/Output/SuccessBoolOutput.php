@@ -6,7 +6,7 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class SuccessBoolOutput extends Utility
 {
-    protected bool|null $output;
+    protected bool $output;
 
     protected array $requiredInput = ['testProp'];
 

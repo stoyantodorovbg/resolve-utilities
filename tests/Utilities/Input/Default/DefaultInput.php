@@ -6,7 +6,7 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class DefaultInput extends Utility
 {
-    protected array|null $output;
+    protected array $output;
 
     protected array $requiredInput = ['testString', 'testInt', 'testFloat', 'testArray'];
 

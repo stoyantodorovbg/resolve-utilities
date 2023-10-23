@@ -6,7 +6,7 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class SuccessFloatOutput extends Utility
 {
-    protected float|null $output;
+    protected float $output;
 
     protected array $requiredInput = ['testProp'];
 

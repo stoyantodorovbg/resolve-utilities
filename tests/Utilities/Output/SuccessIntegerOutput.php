@@ -6,7 +6,7 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class SuccessIntegerOutput extends Utility
 {
-    protected int|null $output;
+    protected int $output;
 
     protected array $requiredInput = ['testProp'];
 

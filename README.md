@@ -7,11 +7,13 @@
 
 This package makes it easy to follow Single Responsibility Principle without duplicating instantiated classes. 
 <br>
-`Utility` class extensions have method `execute` that is intended to use class properties as input parameters and to produce a result in `output` property. There is a wrapper that instantiates once `Utility` extension in its own instance, set properties and returns a result. The wrapper resets `Utility` properties every time when it is used in order to prevent a usage mess. 
+`Utility` class extensions have method `execute` that is intended to use class properties as input parameters and to produce a result in `output` property. These properties allow us to define typed values without using a specific interface. 
+<br>
+There is a wrapper that instantiates once `Utility` extension in its own instance, set properties and returns a result. The wrapper resets `Utility` properties every time when it is used in order to prevent a usage mess. 
 
 ## Requirements
 
-- `PHP 8.2`
+- `PHP 8.1`
 
 - `Laravel`
 
@@ -19,30 +21,28 @@ This package makes it easy to follow Single Responsibility Principle without dup
 
 ##### Extend Utility
 ```php
-use StoyanTodorov\ResolveUtilities\OutputType;
 use StoyanTodorov\ResolveUtilities\Utility;
 
 class StringOutputExample extends Utility
 {
+    protected string $output;
+
     protected array $requiredInput = ['propOne'];
     protected array $defaultInput = ['propTwo' => 1];
-
-    protected array $outputTypes = [OutputType::STRING->value];
 
     protected string|null $propOne = null;
     protected int|null $propTwo = null;
 
     public function execute(): Utility
     {
-        $this->setOutput($this->propOne);
+        $this->output = $this->propOne;
 
         return $this;
     }
 }
 ```
 - In `requiredInput` property add the properties names which `execute` method is going to use.
-- In `defaultInput` property add the properties names with default values. Every time when `Resolver` `useUtility` is called these values will be used while they aren't sent to it in the second parameter.
-- In `outputTypes` property define the allowed output types. They are defined in `OutputType` enum.
+- In `defaultInput` property add the properties names with default values. Every time when `Resolver` `useUtility` method is called these values will be used while they aren't sent to it in the second parameter.
 
 #### Use Resolver
 
@@ -52,7 +52,7 @@ $resultOne = $resolver->useUtility(StringOutputExample::class, ['propOne' => 'te
 $resultTwo = $resolver->useUtility(StringOutputExample::class, ['propOne' => 'test', 'propTwo' => 100]);
 ```
 
-- `useUtility` first parameter accepts also an abstract definition like `'single-output-example'`, when there is such definition in `Laravel` 
+- `useUtility` first parameter accepts also an abstract definition like `'single-output-example'`. It will instantiate it if there is such definition in `Laravel` 
 [Service Container](https://laravel.com/docs/10.x/container)
 
 #### Use HasResolver
@@ -60,7 +60,7 @@ $resultTwo = $resolver->useUtility(StringOutputExample::class, ['propOne' => 'te
 ```php
 use StoyanTodorov\ResolveUtilities\HasResolver;
 
-class Client 
+class ExampleClient 
 {
     use HasResolver;
     
@@ -69,7 +69,7 @@ class Client
         return $this->useUtility(StringOutputExample::class, compact('propOne'));
     }
 }
-$result = (new Client)->test('test');
+$result = (new ExampleClient)->test('test');
 ```
 
 ## Testing

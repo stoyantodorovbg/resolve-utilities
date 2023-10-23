@@ -6,7 +6,7 @@ use StoyanTodorov\ResolveUtilities\Utility;
 
 class SuccessStringOutput extends Utility
 {
-    protected string|null $output;
+    protected string $output;
 
     protected array $requiredInput = ['testProp'];
 
