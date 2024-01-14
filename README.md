@@ -5,11 +5,17 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/stoyantodorov/resolve-utilities/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/stoyantodorov/resolve-utilities/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/stoyantodorov/resolve-utilities.svg?style=flat-square)](https://packagist.org/packages/stoyantodorov/resolve-utilities)
 
-This package makes it easy to follow Single Responsibility Principle without duplicating instantiated classes. 
+This package offers a way to instantiate a class, to send typed input to it and to receive typed result using a convenient interface:
+```php
+public function useUtility(string $abstract, array $input): mixed
+```
+That is implemented by `Resolver` class. It takes care to there are no duplicated instances and resets input/output in them before using.
 <br>
-`Utility` class extensions have method `execute` that is intended to use class properties as input parameters and to produce a result in `output` property. These properties allow us to define typed values without using a specific interface. 
-<br>
-There is a wrapper that instantiates once `Utility` extension in its own instance, set properties and returns a result. The wrapper resets `Utility` input properties every time when it is used in order to prevent a usage mess. 
+The instantiated class should extend `StoyanTodorov\ResolveUtilities\Utility` - so it is obliged to implement method `execute`:
+```php
+abstract public function execute(): self
+```
+Тhe data sent to `useUtility` through `array $input` is available as class properties in the instance. The output, that we expect, should be set in `output` property. In this way we may rely on typed input and output without binding the executed code to a certain interface.
 
 ## Requirements
 
@@ -47,8 +53,8 @@ class StringOutputExample extends Utility
     }
 }
 ```
-- In `requiredInput` property add the properties names which `execute` method is going to use.
-- In `defaultInput` property add the properties names with default values. Every time when `Resolver` `useUtility` method is called these values will be used while they aren't sent to it in the second parameter.
+- In `requiredInput` add the properties names which `execute` uses.
+- In `defaultInput` add the properties names with theirs default values. When `useUtility` method is called these values are used unless they aren't added to the second parameter.
 
 #### Resolver
 
@@ -58,7 +64,7 @@ $resultOne = $resolver->useUtility(StringOutputExample::class, ['propOne' => 'te
 $resultTwo = $resolver->useUtility(StringOutputExample::class, ['propOne' => 'test', 'propTwo' => 100]);
 ```
 
-- `useUtility` first parameter accepts also an abstract definition like `'single-output-example'`. It will instantiate it if there is such definition in `Laravel` 
+- The first parameter sent to `useUtility` may also be an abstract definition like `'single-output-example'`. It will be instantiated if there is such definition in `Laravel` 
 [Service Container](https://laravel.com/docs/10.x/container)
 
 #### HasResolver
